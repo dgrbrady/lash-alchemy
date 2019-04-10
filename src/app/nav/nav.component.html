@@ -1,0 +1,10 @@
+<nav class="topnav">
+  <a
+    *ngFor="let navLink of navOptions"
+    id="{{navLink.id}}"
+    href="{{navLink.link}}"
+    class="{{navLink.status}}"
+    (click)="onSelect(navLink)">
+    {{navLink.displayText}}
+  </a>
+</nav>
