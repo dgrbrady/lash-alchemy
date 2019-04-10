@@ -10,12 +10,16 @@ import { TOPNAVOPS } from '../mock-topNavOptions';
 export class NavComponent implements OnInit {
   navOptions: NavOption[];
   selectedOption: NavOption;
+  collapsed = true;
   onSelect(option: NavOption): void {
     if (this.selectedOption) {
       this.selectedOption.status = '';
     }
     this.selectedOption = option;
     this.selectedOption.status = 'active';
+  }
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
   }
   constructor() {}
 
