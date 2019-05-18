@@ -1,0 +1,16 @@
+<div class="card-deck text-center">
+  <div *ngFor="let card of cards"
+      class="card border-primary">
+    <div class="card-header">{{card.headerText}}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{card.titleText}}</h5>
+      <p class="card-text">{{card.messageText}}</p>
+    </div>
+    <div *ngIf="card.button" class="card-footer">
+      <a routerLink="/{{card.button.href}}"
+          class="btn btn-primary">
+        {{card.button.text}}
+      </a>
+    </div>
+  </div>
+</div>

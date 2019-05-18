@@ -1,0 +1,8 @@
+.card-deck {
+  margin-left: 5px;
+  margin-right: 5px;
+  position: static;
+}
+.card:hover {
+  transform: scale(1.005);
+}
