@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { SlidesComponent } from './slides/slides.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { HomeComponent } from './home/home.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { SentryErrorHandler } from './sentry/sentry.component';
+
 
 const appRoutes: Routes = [
   {path: 'schedule', component: ScheduleComponent },
@@ -42,7 +44,7 @@ const appRoutes: Routes = [
       { enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
