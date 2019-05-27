@@ -1,5 +1,1 @@
-<ngb-datepicker ([ngModel])="model" (navigate)="date = $event.next"></ngb-datepicker>
-
-<p>
-  {{model}}
-</p>
+<ngb-datepicker (select)="onDateSelect($event)"></ngb-datepicker>

@@ -7,14 +7,13 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { BusinessCardsComponent } from './business-cards/business-cards.component';
 import { SlidesComponent } from './slides/slides.component';
-import { ScheduleComponent } from './schedule/schedule.component';
 import { HomeComponent } from './home/home.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { SentryErrorHandler } from './sentry/sentry.component';
 
 
 const appRoutes: Routes = [
-  {path: 'schedule', component: ScheduleComponent },
+  {path: 'schedule', component: DatepickerComponent },
   {
     path: 'home',
     component: HomeComponent,
@@ -32,7 +31,6 @@ const appRoutes: Routes = [
     NavComponent,
     BusinessCardsComponent,
     SlidesComponent,
-    ScheduleComponent,
     HomeComponent,
     DatepickerComponent
   ],
