@@ -6,7 +6,8 @@ export class SentryErrorHandler implements ErrorHandler {
 
   constructor() {
     Sentry.init({
-      dsn: 'https://548695285de54652b62dfae6be63e60a@sentry.io/1462511'
+      dsn: 'https://548695285de54652b62dfae6be63e60a@sentry.io/1462511',
+      release: 'development'
     });
   }
   handleError(error) {

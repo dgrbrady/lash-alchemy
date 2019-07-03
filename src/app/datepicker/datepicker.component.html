@@ -1,1 +1,1 @@
-<ngb-datepicker (select)="onDateSelect($event)"></ngb-datepicker>
+<ngb-datepicker #dp [(ngModel)]="model" (select)="onDateSelect($event)" [markDisabled]="isDisabled"></ngb-datepicker>
