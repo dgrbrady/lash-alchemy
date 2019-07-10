@@ -8,19 +8,28 @@
       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div>
     </div>
     <div class="form-group">
-      <label for="date">Pick a day</label>
-      <input [(ngModel)]="model.date" type="date" class="form-control" id="date" name="date" required>
+      <label for="product">Product</label>
+      <select [(ngModel)]="model.product" class="form-control" id="product" name="product" required>
+        <option *ngFor="let product of products" [value]="product">{{product}}</option>
+      </select>
     </div>
-    <div class="form-group">
-      <label for="time">Pick a time</label>
-      <!-- <input [(ngModel)]="model.startTime" type="time" class="form-control" id="time" name="time" required> -->
-      <ngb-timepicker
-        [(ngModel)]="model.time"
-        [spinners]="false"
-        [meridian]="true"
-        [minuteStep]="30"
-        name="time">
-      </ngb-timepicker>
+    <div class="row justify-content-between form-group">
+      <div class="col">
+        <label for="date">Pick a day</label>
+        <div class="input-group">
+          <input [(ngModel)]="model.date" ngbDatepicker #d="ngbDatepicker" (change)="selectDate($event)" (dateSelect)="selectDate($event)"
+              [markDisabled]="isDayDisabled" #dateInput class="form-control" placeholder="yyyy-mm-dd" name="dp">
+          <div class="input-group-append">
+            <button class="btn btn-sm btn-outline-secondary" (click)="d.toggle()" type="button">Pick a Day</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label for="time">Pick a time</label>
+        <select #timeSelect [(ngModel)]="model.time" class="form-control" id="time" name="time" (change)="selectTime($event)" required>
+          <option *ngFor="let time of times" [value]="time">{{time}}</option>
+        </select>
+      </div>
     </div>
     <div class="form-group">
       <label for="phone">Phone Number</label>
@@ -29,12 +38,6 @@
     <div class="form-group">
       <label for="email">Email Address</label>
       <input [(ngModel)]="model.email" type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="product">Product</label>
-      <select [(ngModel)]="model.product" class="form-control" id="product" name="product" required>
-        <option *ngFor="let product of products" [value]="product">{{product}}</option>
-      </select>
     </div>
     <button [disabled]="!appointmentForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
   </form>

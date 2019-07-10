@@ -21,8 +21,8 @@ export class AppointmentService {
     return appointments;
   }
 
-  fetchAppointmentsOnDay(date: NgbDateStruct) {
+  async fetchAppointmentsOnDay(date: NgbDateStruct) {
     const url = this.appointmentUrl + `?q_date=${date.year}-${date.month}-${date.day}`;
-    return this.http.get(url);
+    return await this.http.get(url);
   }
 }
